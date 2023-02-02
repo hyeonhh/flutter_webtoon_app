@@ -4,7 +4,17 @@
         android:label="flutter_webtoon_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-        <activity
+     <queries>
+    <intent>
+        <action android:name="android.intent.action.VIEW" />
+        <data android:scheme="sms" />
+    </intent>
+    <intent>
+        <action android:name="android.intent.action.VIEW" />
+        <data android:scheme="tel" />
+    </intent>
+    </queries>
+            <activity
             android:name=".MainActivity"
             android:exported="true"
             android:launchMode="singleTop"
