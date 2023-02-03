@@ -69,6 +69,7 @@ class _DetailScreenState extends State<DetailScreen> {
         likedToons.add(widget.id);
       }
       await prefs.setStringList('likedToons', likedToons);
+
       setState(() {
         isLiked = !isLiked;
       });
@@ -150,6 +151,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     ],
                   );
                 }
+
                 return const Text('...');
               },
             ),

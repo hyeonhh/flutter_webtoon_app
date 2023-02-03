@@ -55,6 +55,9 @@ class Webtoon extends StatelessWidget {
             title,
             style: const TextStyle(fontSize: 22),
           ),
+          const SizedBox(
+            height: 20,
+          ),
         ],
       ),
     );

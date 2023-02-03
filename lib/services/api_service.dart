@@ -14,6 +14,7 @@ class ApiService {
     List<WebtoonModel> webtoonInstances = [];
     final url = Uri.parse('$baseUrl/$today'); //저 형태로 url을 가져온다.
     final response = await http.get(url);
+
     if (response.statusCode == 200) {
       final List<dynamic> webtoons = jsonDecode(response.body);
       //여러 Object로 이루어진 리스트

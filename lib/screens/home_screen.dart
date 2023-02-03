@@ -4,6 +4,8 @@ import 'package:flutter_webtoon_app/models/webtoon_model.dart';
 import 'package:flutter_webtoon_app/services/api_service.dart';
 import 'package:flutter_webtoon_app/widgets/webtoon_widget.dart';
 
+import 'liked_screen.dart';
+
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
   //만들어준 Future을 넣어줌.
@@ -25,6 +27,13 @@ class HomeScreen extends StatelessWidget {
             fontWeight: FontWeight.w400,
           ),
         ),
+        leading: IconButton(
+          icon: const Icon(Icons.menu),
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => LikedScreen()));
+          },
+        ),
       ),
       body: FutureBuilder(
         future: webtoons, //자기가 기다릴 future
@@ -37,7 +46,9 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(
                   height: 50,
                 ),
-                Expanded(child: makeText(context, snapshot))
+                Expanded(
+                  child: makeText(context, snapshot),
+                )
               ],
             );
           }
