@@ -3,7 +3,6 @@ import 'package:flutter_webtoon_app/models/webtoon_detail_model.dart';
 import 'package:flutter_webtoon_app/models/webtoon_episode_model.dart';
 import 'package:flutter_webtoon_app/services/api_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../widgets/episode_widget.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -17,10 +16,10 @@ class DetailScreen extends StatefulWidget {
   });
 
   @override
-  State<DetailScreen> createState() => _DetailScreenState();
+  State<DetailScreen> createState() => DetailScreenState();
 }
 
-class _DetailScreenState extends State<DetailScreen> {
+class DetailScreenState extends State<DetailScreen> {
   late Future<WebtoonDetailModel> webtoon;
   late Future<List<WebtoonEpisodeModel>> edpisodes;
   late SharedPreferences prefs;
@@ -63,13 +62,16 @@ class _DetailScreenState extends State<DetailScreen> {
     if (likedToons != null) {
       ///webtoon이 likedToons에 없으면 추가해줘야 한다. 이미 있다면 삭제
       if (isLiked) {
+        ///버튼을 눌러진 상태에서 또 누르면 그 버튼이 해제되는 거니깐 지워준다.
         //likedToonsList에서 webtoon을 지워준다.
         likedToons.remove(widget.id);
+
+        ///liked에서도 해당 내용 지워줘야함
       } else {
         likedToons.add(widget.id);
       }
       await prefs.setStringList('likedToons', likedToons);
-
+      // print(likedToons);
       setState(() {
         isLiked = !isLiked;
       });

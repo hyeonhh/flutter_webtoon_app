@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
           icon: const Icon(Icons.menu),
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => LikedScreen()));
+                MaterialPageRoute(builder: (context) => const LikedScreen()));
           },
         ),
       ),
