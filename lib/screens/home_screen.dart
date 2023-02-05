@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_webtoon_app/models/webtoon_model.dart';
 import 'package:flutter_webtoon_app/services/api_service.dart';
 import 'package:flutter_webtoon_app/widgets/webtoon_widget.dart';
-
-import 'liked_screen.dart';
+import '../screens/liked_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});

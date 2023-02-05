@@ -33,7 +33,7 @@ class DetailScreenState extends State<DetailScreen> {
     if (likedToons != null) {
       /// 이미 list가 있다는 의미이다.
       ///사용자가 지금 보고 있는 webtoon의 ID가 likedToons 안에 있는지 없는지를 확인해야한다.
-      if (likedToons.contains(widget.id) == true) {
+      if (likedToons.contains(widget.title) == true) {
         setState(() {
           isLiked = true;
         });
@@ -64,11 +64,11 @@ class DetailScreenState extends State<DetailScreen> {
       if (isLiked) {
         ///버튼을 눌러진 상태에서 또 누르면 그 버튼이 해제되는 거니깐 지워준다.
         //likedToonsList에서 webtoon을 지워준다.
-        likedToons.remove(widget.id);
+        likedToons.remove(widget.title);
 
         ///liked에서도 해당 내용 지워줘야함
       } else {
-        likedToons.add(widget.id);
+        likedToons.add(widget.title);
       }
       await prefs.setStringList('likedToons', likedToons);
       // print(likedToons);

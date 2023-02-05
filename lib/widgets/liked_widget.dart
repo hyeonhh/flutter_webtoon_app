@@ -39,6 +39,7 @@ class Liked extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
+
           Text(
             id,
           ),
